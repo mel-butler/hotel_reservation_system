@@ -14,7 +14,7 @@ public class Reservations {
     private double totalCost = 0;
 
     //go back and account for room type
-    public Reservation(int number, String name, String type, LocalDate checkIn, LocalDate checkOut, Room[] rooms){
+    public Reservations(int number, String name, String type, LocalDate checkIn, LocalDate checkOut, Room[] rooms){
         this.number = number;
         this.name = name;
         this.type = type;
