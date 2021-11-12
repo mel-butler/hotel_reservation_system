@@ -29,6 +29,7 @@ public class Reservations {
         if (type == "AP") totalCost += totalCost * .95;
     }
 
+
     public int getNumber(){
         return number;
     }
