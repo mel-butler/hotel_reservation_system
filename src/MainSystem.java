@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class MainSystem {
+
     private ReadData read = new ReadData();
 
     public static void main(String[] args) throws Exception {
@@ -138,11 +139,8 @@ public class MainSystem {
         return false;
     }
 
-        public ReadData getRead () {
-            return read;
-        }
+    public ReadData getRead () {
+        return read;
     }
-
-
-
+}
 
