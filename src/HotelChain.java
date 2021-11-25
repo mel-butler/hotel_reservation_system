@@ -1,4 +1,4 @@
 public class HotelChain {
 
-hi
+//hi
 }
