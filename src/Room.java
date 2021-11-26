@@ -1,4 +1,7 @@
+import java.util.ArrayList;
+
 public class Room {
+
     private String type;
     //array of the rooms prices on each day, index 0 = monday, 1 = tuesday .... 6 = sunday
     private double[] prices;
@@ -83,4 +86,17 @@ public class Room {
         }
         return price;
     }
+
+    private  String roomType;
+    private int minOccupancy;
+    private int maxOccupancy;
+    private double[] rates = new double[];
+
+    public Room(String roomType, int minOccupancy, int maxOccupancy, double[] rates){
+        this.roomType = roomType;
+        this.minOccupancy = minOccupancy;
+        this.maxOccupancy = maxOccupancy;
+        this.rates = rates;
+    }
+
 }
