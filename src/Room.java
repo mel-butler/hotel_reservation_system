@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Room {
 
+
     private String type;
     //array of the rooms prices on each day, index 0 = monday, 1 = tuesday .... 6 = sunday
     private double[] prices;
