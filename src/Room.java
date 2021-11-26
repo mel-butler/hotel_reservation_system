@@ -73,7 +73,7 @@ public class Room {
                 break;
 
             case "SAT":
-            case "SATDAY":
+            case "SATURDAY":
                 price = prices[5];
                 break;
 
