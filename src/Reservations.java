@@ -6,6 +6,7 @@ public class Reservations {
     private int number;
     private String name;
     private String type; //S or AP
+    private String email;
     private LocalDate checkIn;
     private LocalDate checkOut;
     private int numOfRooms = 0;
@@ -14,9 +15,10 @@ public class Reservations {
     private double totalCost = 0;
 
     //go back and account for room type
-    public Reservations(int number, String name, String type, LocalDate checkIn, LocalDate checkOut, Room[] rooms){
+    public Reservations(int number, String name, String email, String type, LocalDate checkIn, LocalDate checkOut, Room[] rooms){
         this.number = number;
         this.name = name;
+        this.email = email;
         this.type = type;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
@@ -36,6 +38,10 @@ public class Reservations {
 
     public String getName(){
         return name;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public String getType(){
