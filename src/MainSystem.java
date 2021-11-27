@@ -6,6 +6,7 @@ import java.util.GregorianCalendar;
 public class MainSystem {
 
     private ReadData read = new ReadData();
+    private Reservations data;
 
     public static void main(String[] args) throws Exception {
         MainSystem mainsys = new MainSystem();

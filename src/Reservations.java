@@ -10,56 +10,58 @@ public class Reservations {
     private LocalDate checkIn;
     private LocalDate checkOut;
     private int numOfRooms = 0;
-    private ArrayList<String> roomTypes;
-    private int[] roomOccupancy;
+    private String roomTypes;
+    private int roomOccupancy;
     private double totalCost = 0;
 
+
     //go back and account for room type
-    public Reservations(int number, String name, String email, String type, LocalDate checkIn, LocalDate checkOut, Room[] rooms){
+    public Reservations(int number, String name, String email, String type, LocalDate checkIn, LocalDate checkOut, int numOfRooms, String roomTypes, int roomOccupancy, double totalCost) {
         this.number = number;
         this.name = name;
         this.email = email;
         this.type = type;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
-        for(int i = 0; i < rooms.length; i++){
-            roomTypes.add(i, rooms[i].getType());
-            roomOccupancy[i] = (rooms[i].getOccupancy());
-            numOfRooms++;
-            totalCost += rooms[i].getPrice();
+        this.numOfRooms = numOfRooms;
+        this.roomTypes = roomTypes;
+        this.roomOccupancy = roomOccupancy;
+        this.totalCost = totalCost;
+
+    }
+
+        public int getNumber() {
+            return number;
         }
-        if (type == "AP") totalCost += totalCost * .95;
+
+        public String getName () {
+            return name;
+        }
+
+        public String getEmail () {
+            return email;
+        }
+
+        public String getType () {
+            return type;
+        }
+
+        public LocalDate getCheckIn () {
+
+            return checkIn;
+        }
+
+        public LocalDate getCheckOut () {
+            return checkOut;
+        }
+
+        public int getNumOfRooms () {
+
+            return numOfRooms;
+        }
+
+        public double getTotalCost () {
+            return totalCost;
+        }
+
     }
-
-
-    public int getNumber(){
-        return number;
-    }
-
-    public String getName(){
-        return name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getType(){
-        return type;
-    }
-
-    public LocalDate getCheckIn(){
-        return checkIn;
-    }
-
-    public LocalDate getCheckOut(){
-        return checkOut;
-    }
-
-    public int getNumOfRooms(){
-        return numOfRooms;
-    }
-
-    public double getTotalCost(){ return totalCost; }
-
-}
