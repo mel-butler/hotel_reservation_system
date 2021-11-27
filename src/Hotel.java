@@ -14,8 +14,8 @@ public class Hotel {
         //add code
     }
 
-    public void makeReservation(int number, String name, String type, LocalDate checkIn, LocalDate checkOut, Room[] rooms){
-        Reservations reservation = new Reservations(number, name, type, checkIn, checkOut, rooms);
+    public void makeReservation( String name, String email, String type, String dateFrom, int numOfNights, int numOfPeople, Room[] rooms){
+        Reservations reservation = new Reservations(name, email, type, dateFrom, numOfNights, numOfPeople, rooms);
         reservations.add(reservation);
     }
 

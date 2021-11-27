@@ -19,10 +19,12 @@ public class Reservations {
     private double totalCost = 0;
 
     //creating a reservations object for user input - mel
-    public Reservations(String name, String dateFrom, int numOfNights,
-                        String type, int numOfPeople){
+    public Reservations(String name, String email, String type, String dateFrom, int numOfNights,
+                        int numOfPeople, Room[] rooms){
         this.name = name;
+        this.email = email;
         this.dateFrom = dateFrom;
+        // turns date String into a Gregorian calendar
         String[] from = dateFrom.split("/");
         int day, month, year;
         day = Integer.parseInt(from[0]);
@@ -33,25 +35,15 @@ public class Reservations {
         this.toDate = new GregorianCalendar(year, month, day);
         this.type = type;
         this.numOfPeople = numOfPeople;
-        // turns date String into a Gregorian calendar
-    }
-
-    //go back and account for room type
-    public Reservations(int number, String name, String email, String type, LocalDate checkIn, LocalDate checkOut, Room[] rooms){
-        this.number = number;
-        this.name = name;
-        this.email = email;
-        this.type = type;
-        this.checkIn = checkIn;
-        this.checkOut = checkOut;
         for(int i = 0; i < rooms.length; i++){
             roomTypes.add(i, rooms[i].getType());
             roomOccupancy[i] = (rooms[i].getOccupancy());
             numOfRooms++;
-            totalCost += rooms[i].getPrice();
+            totalCost += rooms[i].getPrice(); // something to do with the day erm
         }
         if (type == "AP") totalCost += totalCost * .95;
     }
+
 
 
     public int getNumber(){
