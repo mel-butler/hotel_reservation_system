@@ -1,5 +1,3 @@
-import java.lang.reflect.Array;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
@@ -62,12 +60,12 @@ public class Reservations {
         return type;
     }
 
-    public LocalDate getCheckIn(){
-        return checkIn;
+    public GregorianCalendar getfromDate(){
+        return fromDate;
     }
 
-    public LocalDate getCheckOut(){
-        return checkOut;
+    public GregorianCalendar gettoDate(){
+        return toDate;
     }
 
     public int getNumOfRooms(){
