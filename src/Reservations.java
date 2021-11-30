@@ -1,59 +1,136 @@
 import java.lang.reflect.Array;
-import java.time.LocalDate;
+import java.util.GregorianCalendar;
 import java.util.ArrayList;
 
 public class Reservations {
     private int number;
     private String name;
-    private String type; //S or AP
-    private LocalDate checkIn;
-    private LocalDate checkOut;
+    private String dateF;
+    private String dateT;
+    private boolean reservType;
+    private GregorianCalendar dateFrom;
+    private GregorianCalendar dateTo;
+    private int numberOfDays;
     private int numOfRooms = 0;
-    private ArrayList<String> roomTypes;
-    private int[] roomOccupancy;
+    private String roomTypes;
+    private int occupancy = 0;
     private double totalCost = 0;
+    private double feecharge;
+    private int numOfOccupancy;
+
+
 
     //go back and account for room type
-    public Reservations(int number, String name, String type, LocalDate checkIn, LocalDate checkOut, Room[] rooms){
+    public Reservations(String name, String dateFrom, boolean reservType, int days, int numOfRooms, String roomTypes, int numOfOccupancy,double feecharge) {
+
+        this.number = (int) (Math.random() * 1000);
+        this.name = name;
+        this.dateF = dateFrom;
+        String[] f = dateFrom.split("/");
+        int d = Integer.parseInt(f[0]);
+        int m = Integer.parseInt(f[1]) - 1;
+        int y = Integer.parseInt(f[2]);
+        int length = d + days;
+        this.dateT = length + "/" + (m+1) + "/" + y;
+        this.dateFrom = new GregorianCalendar(y, m, d);
+        this.dateTo = new GregorianCalendar(y, m, d + days);
+        this.reservType = reservType;
+        this.numberOfDays = days;
+        this.numOfOccupancy = numOfOccupancy;
+        this.numOfRooms = numOfRooms;
+        this.roomTypes = roomTypes;
+        this.feecharge = feecharge;
+
+    }
+
+    public Reservations(int number, String name, String dateFrom, boolean reservType, int days, int numOfRooms, String roomTypes, int numOfOccupancy, double feecharge) {
+
         this.number = number;
         this.name = name;
-        this.type = type;
-        this.checkIn = checkIn;
-        this.checkOut = checkOut;
-        for(int i = 0; i < rooms.length; i++){
-            roomTypes.add(i, rooms[i].getType());
-            roomOccupancy[i] = (rooms[i].getOccupancy());
-            numOfRooms++;
-            totalCost += rooms[i].getPrice();
-        }
-        if (type == "AP") totalCost += totalCost * .95;
+        this.dateF = dateFrom;
+
+        String[] f = dateFrom.split("/");
+        int d = Integer.parseInt(f[0]);
+        int m = Integer.parseInt(f[1]) - 1;
+        int y = Integer.parseInt(f[2]);
+        int length = d + days;
+        this.dateT = length + "/" + (m+1) + "/" + y;
+        this.dateFrom = new GregorianCalendar(y, m, d);
+        this.dateTo = new GregorianCalendar(y, m, d + days);
+        this.reservType = reservType;
+        this.numberOfDays = days;
+        this.numOfOccupancy = numOfOccupancy;
+        this.numOfRooms = numOfRooms;
+        this.roomTypes = roomTypes;
+        this.feecharge = feecharge;
+
     }
 
 
-    public int getNumber(){
+    public int getNumber() {
         return number;
     }
 
-    public String getName(){
+    public String getName () {
         return name;
     }
-
-    public String getType(){
-        return type;
+    public String getDateF() {
+        return dateF;
     }
 
-    public LocalDate getCheckIn(){
-        return checkIn;
+    public String getDateT() {
+        return dateT;
+    }
+    public boolean getReservType(){
+        return  reservType;
+    }
+    public GregorianCalendar getDateFrom () {
+
+        return dateFrom;
     }
 
-    public LocalDate getCheckOut(){
-        return checkOut;
+    public GregorianCalendar getDateTo () {
+        return dateTo;
+    }
+    public double getFeeCharge(){
+        return feecharge;
     }
 
-    public int getNumOfRooms(){
+    public int getNumOfRooms () {
+
         return numOfRooms;
     }
 
-    public double getTotalCost(){ return totalCost; }
+    public void setNumOfOccupancy(int numOfOccupancy) {
+        this.numOfOccupancy = numOfOccupancy;
+    }
 
+    public int getNumOfOccupancy() {
+        return numOfOccupancy;
+    }
+
+    public String getRoomTypes(){
+        return roomTypes;
+    }
+
+    public int getNumberOfDays(){
+        return numberOfDays;
+    }
+
+    public int getOccupancy() {
+        return occupancy;
+    }
+
+    public double setTotalCost(double totalCost){
+        return this.totalCost = totalCost;
+    }
+    public double getTotalCost () {
+        return totalCost;
+    }
+
+    public double setFeeCharge(double feecharge){
+        return this.feecharge = feecharge;
+    }
+
+}
 }
