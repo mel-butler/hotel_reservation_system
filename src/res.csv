@@ -1,0 +1,10 @@
+Reservation Number,Name,Standard Booking,Date From,Date To,number of days,Number of Rooms,Room Type,Number of Occupancy,Fee Charge
+850,josh,True,12/12/2021,14/12/2021,2,2,Deluxe Single,2,270.0
+4,neema,True,12/12/2021,14/12/2021,2,2,Deluxe Double,2,300.0
+738,neema,True,12/12/2021,14/12/2021,2,2,Deluxe Double,2,300.0
+585,joe,True,12/12/2021,13/12/2021,1,1,Classic Double,2,65.0
+667,jan,True,24/12/2027,28/12/2027,4,1,Classic Double,1,285.0
+357,aljd,False,23/05/2028,26/5/2028,3,3,Deluxe Family,3,756.0
+840,hagn,False,23/03/3000,24/3/3000,1,2,Classic Twin,2,136.5
+584,neema,True,12/12/2021,15/12/2021,3,3,Deluxe Double,2,675.0
+113,neema,True,12/12/2021,14/12/2021,2,3,Deluxe Double,2,450.0
