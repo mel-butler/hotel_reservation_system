@@ -1,77 +1,135 @@
-import java.util.ArrayList;
+import java.lang.reflect.Array;
 import java.util.GregorianCalendar;
+import java.util.ArrayList;
 
 public class Reservations {
     private int number;
     private String name;
-    private String type; //S or AP
-    private String email;
-    private String dateFrom;
-    private int numOfNights;
-    private int numOfRooms;
-    private GregorianCalendar fromDate;
-    private GregorianCalendar toDate;
-    private int numOfPeople = 0;
-    private ArrayList<String> roomTypes;
-    private int[] roomOccupancy;
+    private String dateF;
+    private String dateT;
+    private boolean reservType;
+    private GregorianCalendar dateFrom;
+    private GregorianCalendar dateTo;
+    private int numberOfDays;
+    private int numOfRooms = 0;
+    private String roomTypes;
+    private int occupancy = 0;
     private double totalCost = 0;
+    private double feecharge;
+    private int numOfOccupancy;
 
-    //creating a reservations object for user input - mel
-    public Reservations(String name, String email, String type, String dateFrom, int numOfNights,
-                        int numOfPeople, Room[] rooms){
+
+
+    //go back and account for room type
+    public Reservations(String name, String dateFrom, boolean reservType, int days, int numOfRooms, String roomTypes, int numOfOccupancy,double feecharge) {
+
+        this.number = (int) (Math.random() * 1000);
         this.name = name;
-        this.email = email;
-        this.dateFrom = dateFrom;
-        // turns date String into a Gregorian calendar
-        String[] from = dateFrom.split("/");
-        int day, month, year;
-        day = Integer.parseInt(from[0]);
-        month = Integer.parseInt(from[1]) - 1;
-        year = Integer.parseInt(from[2]);
-        int stayPeriod = day + numOfNights;
-        this.fromDate = new GregorianCalendar(year, month, day);
-        this.toDate = new GregorianCalendar(year, month, day);
-        this.type = type;
-        this.numOfPeople = numOfPeople;
-        for(int i = 0; i < rooms.length; i++){
-            roomTypes.add(i, rooms[i].getType());
-            roomOccupancy[i] = (rooms[i].getOccupancy());
-            numOfRooms++;
-            totalCost += rooms[i].getPrice(); // something to do with the day erm
-        }
-        if (type == "AP") totalCost += totalCost * .95;
+        this.dateF = dateFrom;
+        String[] f = dateFrom.split("/");
+        int d = Integer.parseInt(f[0]);
+        int m = Integer.parseInt(f[1]) - 1;
+        int y = Integer.parseInt(f[2]);
+        int length = d + days;
+        this.dateT = length + "/" + (m+1) + "/" + y;
+        this.dateFrom = new GregorianCalendar(y, m, d);
+        this.dateTo = new GregorianCalendar(y, m, d + days);
+        this.reservType = reservType;
+        this.numberOfDays = days;
+        this.numOfOccupancy = numOfOccupancy;
+        this.numOfRooms = numOfRooms;
+        this.roomTypes = roomTypes;
+        this.feecharge = feecharge;
+
+    }
+
+    public Reservations(int number, String name, String dateFrom, boolean reservType, int days, int numOfRooms, String roomTypes, int numOfOccupancy, double feecharge) {
+
+        this.number = number;
+        this.name = name;
+        this.dateF = dateFrom;
+
+        String[] f = dateFrom.split("/");
+        int d = Integer.parseInt(f[0]);
+        int m = Integer.parseInt(f[1]) - 1;
+        int y = Integer.parseInt(f[2]);
+        int length = d + days;
+        this.dateT = length + "/" + (m+1) + "/" + y;
+        this.dateFrom = new GregorianCalendar(y, m, d);
+        this.dateTo = new GregorianCalendar(y, m, d + days);
+        this.reservType = reservType;
+        this.numberOfDays = days;
+        this.numOfOccupancy = numOfOccupancy;
+        this.numOfRooms = numOfRooms;
+        this.roomTypes = roomTypes;
+        this.feecharge = feecharge;
+
     }
 
 
-
-    public int getNumber(){
+    public int getNumber() {
         return number;
     }
 
-    public String getName(){
+    public String getName () {
         return name;
     }
-
-    public String getEmail() {
-        return email;
+    public String getDateF() {
+        return dateF;
     }
 
-    public String getType(){
-        return type;
+    public String getDateT() {
+        return dateT;
+    }
+    public boolean getReservType(){
+        return  reservType;
+    }
+    public GregorianCalendar getDateFrom () {
+
+        return dateFrom;
     }
 
-    public GregorianCalendar getfromDate(){
-        return fromDate;
+    public GregorianCalendar getDateTo () {
+        return dateTo;
+    }
+    public double getFeeCharge(){
+        return feecharge;
     }
 
-    public GregorianCalendar gettoDate(){
-        return toDate;
-    }
+    public int getNumOfRooms () {
 
-    public int getNumOfRooms(){
         return numOfRooms;
     }
 
-    public double getTotalCost(){ return totalCost; }
+    public void setNumOfOccupancy(int numOfOccupancy) {
+        this.numOfOccupancy = numOfOccupancy;
+    }
+
+    public int getNumOfOccupancy() {
+        return numOfOccupancy;
+    }
+
+    public String getRoomTypes(){
+        return roomTypes;
+    }
+
+    public int getNumberOfDays(){
+        return numberOfDays;
+    }
+
+    public int getOccupancy() {
+        return occupancy;
+    }
+
+    public double setTotalCost(double totalCost){
+        return this.totalCost = totalCost;
+    }
+    public double getTotalCost () {
+        return totalCost;
+    }
+
+    public double setFeeCharge(double feecharge){
+        return this.feecharge = feecharge;
+    }
 
 }
