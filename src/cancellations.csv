@@ -1,0 +1,6 @@
+Reservation Number,Name,Standard Booking,Date From,Date To,number of days,Number of Rooms,Room Type,Number of Occupancy,Fee Charge
+311,loiu,True,15/12/2021,17/12/2021,2,2,Deluxe Double,2,310.0
+556,jan,True,12/04/2222,15/4/2222,3,4,Classic Double,2,880.0
+42,john batman,True,12/12/2021,13/12/2021,1,1,Classic Double,2,65.0
+884,ham,True,23/09/2030,29/9/2030,6,5,Classic Single,1,1800.0
+99,hattn,True,23/01/4000,25/1/4000,2,1,Classic Single,1,100.0
