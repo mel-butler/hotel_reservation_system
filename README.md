@@ -17,5 +17,6 @@ To run the system
 5. Follow the prompts in the terminal
 
 Note:
-supervisor password: super
-deskman password: deskman
+supervisor password: password
+deskman password: reception
+
